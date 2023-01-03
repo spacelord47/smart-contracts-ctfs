@@ -2,18 +2,23 @@
 src = 'src'
 out = 'out'
 libs = ['lib']
-optimizer = true
-optimizer_runs = 200
+# optimizer = true # compilation errors with previous solidity versions; "Variable headStart is 3 slot(s) too deep inside the stack"
+# optimizer_runs = 200
+optimizer = false
 verbosity = 2
 
 [profile.anvil]
 eth_rpc_url = "http://127.0.0.1:8545"
 
-[profile.sepolia]
-eth_rpc_url = "${ETH_RPC_URL}"
+# [profile.sepolia]
+# eth_rpc_url = "${ETH_RPC_URL}"
+
+# [profile.goerli]
+# eth_rpc_url = "${INFURA_GOERLI_RPC}"
 
 [rpc_endpoints]
-sepolia = "${INFURA_SEPOLIA_RPC_URL}"
+sepolia = "${INFURA_SEPOLIA_RPC}"
+goerli = "${INFURA_GOERLI_RPC}"
 
 [etherscan]
 sepolia = { key = "${ETHERSCAN_API_KEY}", chain = 11155111, url = "https://api-sepolia.etherscan.io/api" }
